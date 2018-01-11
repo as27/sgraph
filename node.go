@@ -2,10 +2,13 @@ package sgraph
 
 import "reflect"
 
+// Unmarshaler fills the type by using the input
 type Unmarshaler interface {
 	Unmarshal([]byte) error
 }
 
+// Marshaler is used for creating the nodes, because the types are stored
+// as []byte
 type Marshaler interface {
 	Marshal() ([]byte, error)
 }
