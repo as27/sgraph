@@ -3,10 +3,11 @@ package sgraph_test
 import (
 	"bytes"
 	"encoding/gob"
-	"raspi/boreales/tamanager/sgraph"
-	"raspi/boreales/tamanager/sgraph/mapdb"
 	"reflect"
 	"testing"
+
+	"github.com/as27/sgraph"
+	"github.com/as27/sgraph/mapdb"
 )
 
 func TestSgraph(t *testing.T) {

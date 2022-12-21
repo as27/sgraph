@@ -1,9 +1,10 @@
 package mapdb
 
 import (
-	"raspi/boreales/tamanager/sgraph"
 	"reflect"
 	"testing"
+
+	"github.com/as27/sgraph"
 )
 
 func TestDBImplementation(t *testing.T) {
@@ -28,14 +29,14 @@ func TestDB_Get(t *testing.T) {
 			"one",
 			testDB,
 			args{"one", "number"},
-			testDB.Data[makeKey("one", "number")],
+			testDB.data[makeKey("one", "number")],
 			false,
 		},
 		{
 			"value not found",
 			testDB,
 			args{"ten", "number"},
-			testDB.Data[makeKey("ten", "number")],
+			testDB.data[makeKey("ten", "number")],
 			true,
 		},
 	}
@@ -102,7 +103,7 @@ func TestDB_Set(t *testing.T) {
 			if (err != nil) != tt.wantErr {
 				t.Errorf("DB.Set() error = %v, wantErr %v", err, tt.wantErr)
 			}
-			if tt.db.Data[makeKey(tt.args.key, tt.args.nodeType)] != n {
+			if tt.db.data[makeKey(tt.args.key, tt.args.nodeType)] != n {
 				t.Error("Set() is not setting the correct pointer")
 			}
 		})
